@@ -1,0 +1,82 @@
+﻿@model List<WeatherInfoVM>
+@{
+    ViewData["Title"] = "Weather App";
+    var nowaday = DateTime.Now;
+    Calendar cal = CultureInfo.CurrentCulture.Calendar;
+
+}
+
+<div class="container shadow-lg p-3 mb-5 bg-white rounded contmrg">
+    <div style="padding: 50px;">
+        <div class="row align-items-center">
+            <div class="col-4"><h1>@ViewBag.CityName</h1></div>
+            <div class="col-8">
+                <h3>7 Day Weather Forecast </h3>
+            </div>
+            <div class="col-4">
+                <h5>Today</h5>
+                <label>Temperature : </label>
+                <span class="badge badge-info">@Model[0].Temp °C</span>
+                <br />
+
+                <label>Wind Speed : </label>
+                <span class="badge badge-info">@Model[0].Wind Km/h</span>
+                <br />
+
+                <label>Pressure : </label>
+                <span class="badge badge-info">@Model[0].Pressure Hpa</span>
+                <br />
+
+                <label>Humidity : </label>
+                <span class="badge badge-info">@Model[0].Humidity %</span>
+                <br />
+
+                <label>Cloudness : </label>
+                <span class="badge badge-info">@Model[0].Cloudness %</span>
+                <br />
+
+                <label>Weathe Condition : </label>
+                <span class="badge badge-info">@Model[0].WeatherCondition</span>
+            </div>
+
+            <div class="col-8">
+
+                <table class="table table-borderless">
+                    <thead>
+                        <tr>
+
+                            <th scope="col">@cal.GetDayOfWeek(nowaday.AddDays(1))</th>
+                            <th scope="col">@cal.GetDayOfWeek(nowaday.AddDays(2))</th>
+                            <th scope="col">@cal.GetDayOfWeek(nowaday.AddDays(3))</th>
+                            <th scope="col">@cal.GetDayOfWeek(nowaday.AddDays(4))</th>
+                            <th scope="col">@cal.GetDayOfWeek(nowaday.AddDays(5))</th>
+                            <th scope="col">@cal.GetDayOfWeek(nowaday.AddDays(6))</th>
+                            <th scope="col">@cal.GetDayOfWeek(nowaday.AddDays(7))</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>@Model[1].Temp °C</td>
+                            <td>@Model[2].Temp °C</td>
+                            <td>@Model[3].Temp °C</td>
+                            <td>@Model[4].Temp °C</td>
+                            <td>@Model[5].Temp °C</td>
+                            <td>@Model[6].Temp °C</td>
+                            <td>@Model[7].Temp °C</td>
+                        </tr>
+                        <tr>
+                            <td>@Model[1].WeatherCondition</td>
+                            <td>@Model[2].WeatherCondition</td>
+                            <td>@Model[3].WeatherCondition</td>
+                            <td>@Model[4].WeatherCondition</td>
+                            <td>@Model[5].WeatherCondition</td>
+                            <td>@Model[6].WeatherCondition</td>
+                            <td>@Model[7].WeatherCondition</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
