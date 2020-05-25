@@ -44,34 +44,24 @@
                 <table class="table table-borderless">
                     <thead>
                         <tr>
-
-                            <th scope="col">@cal.GetDayOfWeek(nowaday.AddDays(1))</th>
-                            <th scope="col">@cal.GetDayOfWeek(nowaday.AddDays(2))</th>
-                            <th scope="col">@cal.GetDayOfWeek(nowaday.AddDays(3))</th>
-                            <th scope="col">@cal.GetDayOfWeek(nowaday.AddDays(4))</th>
-                            <th scope="col">@cal.GetDayOfWeek(nowaday.AddDays(5))</th>
-                            <th scope="col">@cal.GetDayOfWeek(nowaday.AddDays(6))</th>
-                            <th scope="col">@cal.GetDayOfWeek(nowaday.AddDays(7))</th>
+                            @for (int i = 1; i < 8; i++)
+                            {
+                                <th scope="col">@cal.GetDayOfWeek(nowaday.AddDays(i))</th>
+                            }
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>@Model[1].Temp °C</td>
-                            <td>@Model[2].Temp °C</td>
-                            <td>@Model[3].Temp °C</td>
-                            <td>@Model[4].Temp °C</td>
-                            <td>@Model[5].Temp °C</td>
-                            <td>@Model[6].Temp °C</td>
-                            <td>@Model[7].Temp °C</td>
+                            @for (int i = 1; i < 8; i++)
+                            {
+                                <td>@Model[i].Temp °C</td>
+                            }
                         </tr>
                         <tr>
-                            <td>@Model[1].WeatherCondition</td>
-                            <td>@Model[2].WeatherCondition</td>
-                            <td>@Model[3].WeatherCondition</td>
-                            <td>@Model[4].WeatherCondition</td>
-                            <td>@Model[5].WeatherCondition</td>
-                            <td>@Model[6].WeatherCondition</td>
-                            <td>@Model[7].WeatherCondition</td>
+                            @for (int i = 1; i < 8; i++)
+                            {
+                                <td>@Model[i].WeatherCondition</td>
+                            }
                         </tr>
                     </tbody>
                 </table>

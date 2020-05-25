@@ -56,10 +56,12 @@ namespace WeatherApp.Controllers
                         WeatherCondition = weatherResponse.Daily[i].Weather[0].Description
                     });
                 }
+                ViewBag.CityName = cityName;
+                return View(CityWeather);
             }
-           
-            ViewBag.CityName = cityName;
-            return View(CityWeather);
+
+            return View();
+            
         }
 
         // eseni moyolilia da ar wamishlia :)
